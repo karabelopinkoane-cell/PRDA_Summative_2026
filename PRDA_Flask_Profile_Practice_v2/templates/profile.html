@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ user.full_name }} | PRDA Practice{% endblock %}
+{% block content %}
+<section class="profile-shell">
+  <div class="profile-banner"><div class="avatar">{{ user.full_name[:1] | upper }}</div><div><span class="eyebrow">STORED USER PROFILE</span><h1>{{ user.full_name }}</h1><p>@{{ user.username }}</p></div></div>
+  <div class="profile-grid">
+    <article class="profile-card"><span>Email</span><strong>{{ user.email }}</strong></article>
+    <article class="profile-card"><span>Phone</span><strong>{{ user.phone }}</strong></article>
+    <article class="profile-card wide"><span>About</span><p>{{ user.bio or "No bio has been added yet." }}</p></article>
+  </div>
+  <div class="profile-actions">
+    {% if is_owner %}<a class="btn primary" href="{{ url_for('edit_profile', username=user.username) }}">Edit Profile</a>{% else %}<a class="btn primary" href="{{ url_for('login') }}">Login to Edit</a>{% endif %}
+    <a class="btn secondary" href="{{ url_for('profiles') }}">View All Profiles</a>
+  </div>
+</section>
+{% endblock %}

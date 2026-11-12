@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Home | PRDA Practice{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">PROGRAM & DEPLOY APPLICATIONS</span>
+    <h1>Build something simple.<br>Make it work well.</h1>
+    <p>Practise the complete Flask workflow: registration, validation, JSON storage, dynamic profiles, updates, testing, Git and deployment.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="{{ url_for('register') }}">Create a Profile</a>
+      {% if current_username %}
+        <a class="btn secondary" href="{{ url_for('profile', username=current_username) }}">Open My Profile</a>
+      {% else %}
+        <a class="btn secondary" href="{{ url_for('login') }}">Practice Login</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="hero-panel">
+    <div class="mini-window">
+      <div class="window-bar"><span></span><span></span><span></span></div>
+      <div class="code-line"><b>01</b> Flask routes & templates</div>
+      <div class="code-line"><b>02</b> JSON data storage</div>
+      <div class="code-line"><b>03</b> Input validation</div>
+      <div class="code-line"><b>04</b> Profile update workflow</div>
+      <div class="code-line"><b>05</b> Git + Render deployment</div>
+    </div>
+  </div>
+</section>
+<section class="section-shell">
+  <div class="section-heading"><span class="eyebrow">WHAT YOU ARE PRACTISING</span><h2>One project, the full application lifecycle</h2></div>
+  <div class="feature-grid">
+    <article class="feature-card"><span class="feature-number">01</span><h3>Register</h3><p>Create a profile using a Flask form and validate the submitted values.</p></article>
+    <article class="feature-card"><span class="feature-number">02</span><h3>Store</h3><p>Save structured user information in a JSON file and load it when needed.</p></article>
+    <article class="feature-card"><span class="feature-number">03</span><h3>Display</h3><p>Render saved information dynamically using Jinja templates.</p></article>
+    <article class="feature-card"><span class="feature-number">04</span><h3>Update</h3><p>Preload existing values into an edit form and save the changes.</p></article>
+    <article class="feature-card"><span class="feature-number">05</span><h3>Test</h3><p>Run automated tests and check valid, invalid and edge-case behaviour.</p></article>
+    <article class="feature-card"><span class="feature-number">06</span><h3>Deploy</h3><p>Push the project with Git and deploy the live Flask application.</p></article>
+  </div>
+</section>
+{% endblock %}

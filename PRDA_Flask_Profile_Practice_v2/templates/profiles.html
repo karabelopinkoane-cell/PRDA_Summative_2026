@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Profiles | PRDA Practice{% endblock %}
+{% block content %}
+<section class="section-shell">
+  <div class="section-heading inline-heading"><div><span class="eyebrow">DYNAMIC DATA</span><h1>Stored profiles</h1><p>Every card below is rendered from the JSON data file.</p></div><a class="btn primary" href="{{ url_for('register') }}">Add Profile</a></div>
+  {% if users %}<div class="user-grid">{% for user in users %}<article class="user-card"><div class="avatar small">{{ user.full_name[:1] | upper }}</div><h3>{{ user.full_name }}</h3><p>@{{ user.username }}</p><span>{{ user.email }}</span><a href="{{ url_for('profile', username=user.username) }}">View Profile →</a></article>{% endfor %}</div>
+  {% else %}<div class="empty-state"><h2>No profiles yet</h2><p>Register the first profile to populate the JSON data file.</p><a class="btn primary" href="{{ url_for('register') }}">Register Now</a></div>{% endif %}
+</section>
+{% endblock %}

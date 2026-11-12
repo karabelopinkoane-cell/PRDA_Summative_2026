@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Login | PRDA Practice{% endblock %}
+{% block content %}
+<section class="auth-shell"><div class="auth-card">
+  <span class="eyebrow">CLASSROOM LOGIN</span><h1>Welcome back</h1>
+  <p>Enter a registered username to practise session-based navigation.</p>
+  <form method="post"><div class="field"><label for="username">Username</label><input id="username" name="username" value="{{ username }}" placeholder="Your username" required autofocus></div><button class="btn primary full" type="submit">Login</button></form>
+  <p class="form-note">Need a profile? <a href="{{ url_for('register') }}">Register first</a>.</p>
+  <div class="practice-note"><strong>Practice note:</strong> This login intentionally uses only a username so the lesson stays focused on Flask routes, templates, sessions, validation and deployment.</div>
+</div></section>
+{% endblock %}

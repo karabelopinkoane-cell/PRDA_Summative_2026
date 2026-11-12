@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Register | PRDA Practice{% endblock %}
+{% block content %}
+<section class="page-shell split-layout">
+  <div class="form-intro">
+    <span class="eyebrow">CREATE PROFILE</span><h1>Register a new user</h1>
+    <p>This form demonstrates POST requests, validation, JSON storage and redirecting to a dynamic profile page.</p>
+    <div class="info-card"><strong>Validation rules</strong><ul><li>Username: 3–20 letters, numbers or underscores</li><li>Email: valid email format</li><li>Phone: 7–15 digits</li><li>Bio: maximum 180 characters</li></ul></div>
+  </div>
+  <section class="form-card">
+    <form method="post" novalidate>
+      <div class="field"><label for="full_name">Full name</label><input id="full_name" name="full_name" value="{{ form.get('full_name', '') }}" placeholder="e.g. Scooby Doo" required></div>
+      <div class="field"><label for="username">Username</label><input id="username" name="username" value="{{ form.get('username', '') }}" placeholder="e.g. Scooby_Doo" required></div>
+      <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" value="{{ form.get('email', '') }}" placeholder="student@example.com" required></div>
+      <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" value="{{ form.get('phone', '') }}" placeholder="0834712030" required></div>
+      <div class="field"><label for="bio">Short bio</label><textarea id="bio" name="bio" rows="4" placeholder="A short introduction...">{{ form.get('bio', '') }}</textarea></div>
+      <button class="btn primary full" type="submit">Register Profile</button>
+    </form>
+    <p class="form-note">Already registered? <a href="{{ url_for('login') }}">Log in here</a>.</p>
+  </section>
+</section>
+{% endblock %}
